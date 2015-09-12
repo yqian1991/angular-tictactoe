@@ -15,4 +15,7 @@ Clean mytemplate.pt
 5. Run python setup.py test -q to test 
    Run python setup.py develop for development
 
-6.
+6. pserve development.ini
+
+7. Add angular.js 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>

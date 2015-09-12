@@ -1,0 +1,95 @@
+body{
+　 text-align: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   font-size: 16px;
+   font-family: 'Comic Sans MS', Helvetica, sans-serif;
+}
+
+#board table {
+  margin-left:auto;
+  margin-right:auto;
+  width: 331px;
+  -webkit-user-select: none;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius: 6px;
+  text-align: center;
+}
+#board td {
+  height: 105px;
+  width: 105px;
+  text-align: center;
+  font-size: 72px;
+  border: 2px solid #cccccc;
+  -webkit-border-radius: 6px;
+}
+
+#history table {
+  margin-left:auto;
+  margin-right:auto;
+  width: 200px;
+  -webkit-user-select: none;
+  text-align: center;
+}
+#history td {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  font-size: 10px;
+  -webkit-border-radius: 10px;
+}
+
+th {
+  font-size: 20px;
+  text-align: center;
+}
+
+.X-marker {
+  color: #663366;
+}
+.X-marker:before {
+  content: "X";
+}
+.O-marker {
+  color: #CC0033;
+}
+.O-marker:before {
+  content: "O";
+}
+
+.display-table{
+    display: table;
+    table-layout: fixed;
+}
+
+.display-cell{
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+    float: none;
+}
+
+p {
+  text-align: center;
+}
+
+.col-md-6 {
+   text-align:center;
+}
+
+.col-md-3 {
+   text-align:center;
+}
+
+.col-md-6 table {
+   display:inline-block;
+}
+
+.col-md-6 span {
+   display:inline-block;
+}
+
+.col-md-3 table {
+   display:inline-block;
+}
