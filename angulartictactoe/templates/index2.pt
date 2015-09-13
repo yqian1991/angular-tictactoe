@@ -28,13 +28,14 @@
   <!-- The container is for game-->
   <div class="container">
     <div class="jumbotron">
-      <div class="row">
+       <div class="row">
         <div class="col-md-3">
           <h2>
-            <span class="label label-primary">Current Player:{{currentPlayer}}</span>
+            <span ng-hide="winner||cat" class="label label-primary">Current Player:{{currentPlayer}}</span>
+            <span ng-show="winner" class="label label-info" id="current_player">{{currentPlayer}} won!</span>
+            <span ng-show="cat">Cat</span>
           </h2>
-          <p>
-            <div ng-repeat="winner in winners">{{ winner }} won!</div>
+          <p>log...<br>log...<br>log...<br>log...<br>log...<br>log...<br>log...<br>log...<br>log...<br>log...<br>
           </p>
         </div>
 
@@ -44,12 +45,17 @@
               <button class="btn btn-lg btn-primary" ng-click="init_board()">New Game</button>
             </p>
           </h2>
+                
           <div ng-init="init_board()" id="board">
-            <div ng-repeat="rows in board" ng-init="rindex=$index">
-              <button class="btn-primary btn-lg" ng-disabled="isTaken(cell);" ng-click="update(rindex, $index);" ng-repeat="cell in rows">
+            <div><button class="btn-primary btn-lg" ng-repeat="cell in board.slice(0, 3)" ng-disabled="isTaken(cell);" ng-click="update(cell);">
                     {{ cell }}
-              </button>
-            </div>
+            </button><div/>
+            <div><button class="btn-primary btn-lg" ng-repeat="cell in board.slice(3, 6)" ng-disabled="isTaken(cell);" ng-click="update(cell);">
+                    {{ cell }}
+            </button><div/>
+            <div><button class="btn-primary btn-lg" ng-repeat="cell in board.slice(6, 10)" ng-disabled="isTaken(cell);" ng-click="update(cell);">
+                    {{ cell }}
+            </button><div/>
           </div>
         </div>
 
@@ -63,12 +69,6 @@
   <!--The container for additional information-->
   <div class="container">
     <div class="jumbotron">
-      <span>
-        <a type="button" class="btn btn-lg btn-primary" id="how_to_play" ng-click="showIntro()">  How to play
-        </a>
-      </span>
-      <span ng-hide="intro"><p>{{ introduction }}</p></span>
-      <span ng-show="intro"><p></p></span>
     </div>
 　　</div>
 

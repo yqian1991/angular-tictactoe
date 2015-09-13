@@ -4,8 +4,12 @@ from model import Player, History, Game
 
 @view_config(route_name='home', renderer='templates/index.pt')
 def my_view(request):
-    return {'project': 'angular-tictactoe'}
-    
+    return {}
+
+@view_config(route_name='index2', renderer='templates/index2.pt')
+def index2_view(request):
+    return {}
+
 @view_config(route_name='api.init', renderer='json')
 def init_game(request):
     print "Init game..."

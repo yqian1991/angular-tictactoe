@@ -9,8 +9,7 @@ def main(global_config, **settings):
     config.include('pyramid_chameleon')
     config.add_static_view('static', 'static', cache_max_age=0) #default cache_max_age = 3600
     config.add_route('home', '/')
-    config.add_route('cities', '/cities')
-    config.add_route('city', '/cities/{name}')
+    config.add_route('index2', '/index')
     config.add_route('api.test', '/api/test')
     config.add_route('api.init', '/api/init')
     config.add_route('api.update', '/api/update')
