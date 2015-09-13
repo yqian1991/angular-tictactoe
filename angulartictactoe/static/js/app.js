@@ -36,24 +36,20 @@ gameControllers.controller('gameController',['$scope', '$http', 'gameApiService'
       };
 
 	  $scope.show_introduction = function() {
+        console.log("Show introduction");
 	    $scope.intro = $scope.intro === false ? true : false;
-	    console.log("Show introduction");
 	  };
 
 	  $scope.is_taken = function(cell) {
-		$scope.flag = cell !== '_';
-		console.log($scope.flag);
-        return $scope.flag;
+		return cell !== '_';
       };
 
       $scope.update = function(rindex, cindex) {
         $scope.board[rindex][cindex] = $scope.currentPlayer;
         $scope.currentPlayer = $scope.currentPlayer === 'X' ? 'O' : 'X';
-        console.log("cell:"+$scope.currentPlayer);
         var index = rindex*3 + cindex;
         gameApiService.update(index).success( function(data) {
           if (data._winner) {
-            console.log("We have a winner.");
             $scope.winner = true;
             $scope.winners.push(data._current_player);
             $scope.init_board();
@@ -75,6 +71,7 @@ gameServices.factory('gameApiService', ['$http',
     function($http){
       var urlBase = "http://0.0.0.0:6543/api";
       var gameApiService = {};
+
       gameApiService.init = function() {
         return $http.get(urlBase + '/init');
       };
