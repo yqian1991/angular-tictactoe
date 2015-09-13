@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="${request.static_url('angulartictactoe:static/css/app.css')}">
 </head>
 
-<body ng-controller="gameController">
+<body>
 
 <div class="container">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,7 +26,7 @@
   </div>
 
   <!-- The container is for game-->
-  <div class="container">
+  <div class="container" ng-controller="gameController">
     <div class="jumbotron">
       <div class="row">
         <div class="col-md-3">
@@ -46,14 +46,14 @@
           </h2>
           <div ng-init="init_board()" id="board">
             <div ng-repeat="rows in board" ng-init="rindex=$index">
-              <button class="btn-primary btn-lg" ng-disabled="isTaken(cell);" ng-click="update(rindex, $index);" ng-repeat="cell in rows">
+              <button class="btn-primary btn-lg" ng-disabled="is_taken(cell);" ng-click="update(rindex, $index);" ng-repeat="cell in rows">
                     {{ cell }}
               </button>
             </div>
           </div>
         </div>
 
-        <div class="col-md-3" ng-controller="gameHistoryCtrl">
+        <div class="col-md-3">
           <h2>　<span class="label label-primary">Game History</span></h2>
           <span ng-repeat="his in history" ng-init="board=to_board(his._game_board, 3)">
             <div ng-repeat="row in board">
@@ -72,7 +72,7 @@
   <div class="container">
     <div class="jumbotron">
       <span>
-        <a type="button" class="btn btn-lg btn-primary" id="how_to_play" ng-click="showIntro()">  How to play
+        <a type="button" class="btn btn-lg btn-primary" id="how_to_play" ng-click="show_introduction()">  How to play
         </a>
       </span>
       <span ng-hide="intro"><p>{{ introduction }}</p></span>
