@@ -15,12 +15,14 @@ gameControllers.controller('gameController',['$scope', '$http', 'gameApiService'
 	  $scope.introduction = "Tell you how to play the game";
       $scope.winner = false;
       $scope.winners = [];
-      $scope.history = [];
-
-      gameApiService.history().success(function(data){
-        console.log(data);
-        $scope.history = data._history;
-      });
+      $scope.histories = [];
+      
+      $scope.history = function(){
+        gameApiService.history().success(function(data){
+          console.log(data);
+          $scope.histories = data._history;
+        });
+      };
     
       $scope.init_board = function() {
         $scope.winner = false;
@@ -31,12 +33,12 @@ gameControllers.controller('gameController',['$scope', '$http', 'gameApiService'
             console.log($scope.board);
         }); 
     
-      }
+      };
 
 	  $scope.show_introduction = function() {
 	    $scope.intro = $scope.intro === false ? true : false;
 	    console.log("Show introduction");
-	  }
+	  };
 
 	  $scope.is_taken = function(cell) {
 		$scope.flag = cell !== '_';

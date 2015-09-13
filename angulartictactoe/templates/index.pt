@@ -54,8 +54,12 @@
         </div>
 
         <div class="col-md-3">
-          <h2>　<span class="label label-primary">Game History</span></h2>
-          <span ng-repeat="his in history" ng-init="board=to_board(his._game_board, 3)">
+          <h2>
+            <p>
+              <button class="btn btn-lg btn-primary" ng-click="history()">Show history</button>
+            </p>
+          </h2>
+          <span ng-repeat="his in histories" ng-init="board=to_board(his._game_board, 3)">
             <div ng-repeat="row in board">
               <button ng-repeat="cell in row">
                 {{cell}}
