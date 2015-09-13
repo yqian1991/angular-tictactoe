@@ -1,6 +1,6 @@
 var app = angular.module('angulartictactoe', []);
 
-var gameController = function($scope, $http) {
+app.controller('gameController',['$scope', '$http', function($scope, $http) {
     $scope.intro = true;
 	$scope.introduction = "Tell you how to play the game";
     $scope.winner = false;
@@ -27,7 +27,7 @@ var gameController = function($scope, $http) {
         console.log("cell:"+$scope.currentPlayer);
         updateBoard(rindex*3 + cindex, $scope, $http);
     };
-}
+}]);
 
 function chunk(arr, size) {
   var newArr = [];
