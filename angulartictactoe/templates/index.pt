@@ -53,8 +53,16 @@
           </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3" ng-controller="gameHistoryCtrl">
           <h2>　<span class="label label-primary">Game History</span></h2>
+          <span ng-repeat="his in history" ng-init="board=to_board(his._game_board, 3)">
+            <div ng-repeat="row in board">
+              <button ng-repeat="cell in row">
+                {{cell}}
+              </button>
+            </div>
+            <br/>
+          </span>
         </div>
       </div>
     </div>

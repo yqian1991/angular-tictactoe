@@ -1,6 +1,15 @@
-var app = angular.module('angulartictactoe', []);
+'use strict';
 
-app.controller('gameController',['$scope', '$http', function($scope, $http) {
+/* App Module*/
+var app = angular.module('angulartictactoe', [
+      'gameControllers',
+      'gameServices',
+    ]);
+
+/* Controllers*/
+var gameControllers = angular.module('gameControllers', []);
+
+gameControllers.controller('gameController',['$scope', '$http', function($scope, $http) {
     $scope.intro = true;
 	$scope.introduction = "Tell you how to play the game";
     $scope.winner = false;
@@ -16,9 +25,9 @@ app.controller('gameController',['$scope', '$http', function($scope, $http) {
 	}
 
 	$scope.isTaken = function(cell) {
-		flag = cell !== '_';
-		console.log(flag);
-        return flag;
+		$scope.flag = cell !== '_';
+		console.log($scope.flag);
+        return $scope.flag;
     };
 
     $scope.update = function(rindex, cindex) {
@@ -27,6 +36,19 @@ app.controller('gameController',['$scope', '$http', function($scope, $http) {
         console.log("cell:"+$scope.currentPlayer);
         updateBoard(rindex*3 + cindex, $scope, $http);
     };
+}]);
+
+gameControllers.controller('gameHistoryCtrl', ['$scope', '$http', function($scope, $http){
+    console.log("game history");
+    $http.get('http://0.0.0.0:6543/api/history').
+         success( function(data){
+            console.log(data);
+            $scope.history = data._history;
+    })
+
+    $scope.to_board = function(arr, size) {
+        return chunk(arr, size);
+    }
 }]);
 
 function chunk(arr, size) {
@@ -61,3 +83,20 @@ function init_game(scope, http){
             console.log(scope.board);
     });
 }
+
+/* App services*/
+var gameServices = angular.module('gameServices', []);
+
+gameServices.factory('gameHistoryService',['$scope', '$http',function($http){
+    return {
+      history:function(){
+        $http.get('http://0.0.0.0:6543/api/history').
+         success( function(data){
+            console.log(data);
+            $scope.history = data;
+            return data;
+         })
+      }
+    };
+ }
+]);
