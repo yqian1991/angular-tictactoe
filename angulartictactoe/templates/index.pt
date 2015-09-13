@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="${request.static_url('angulartictactoe:static/css/app.css')}">
 </head>
 
-<body>
+<body ng-controller="gameController">
 
 <div class="container">
 
@@ -84,8 +84,14 @@
    <!--The container for additional information-->
    <div class="container">
        <div class="jumbotron">
-           <p><a class="btn btn-lg btn-primary" id="how_to_play" role='button'>How to Play</a></p>
-           <p id="how_to_play_content"> </p>
+           <span>
+            <p>
+              <button class="btn btn-lg btn-primary" id="how_to_play" ng-click="showIntro()"> {{ introButton }} 
+              </button>
+            </p>
+           </span>
+           <span ng-hide="intro"><p>{{ introduction }}</p></span>
+           <span ng-show="intro"><p></p></span>
        </div>
 　　</div>
 
