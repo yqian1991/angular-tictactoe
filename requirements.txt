@@ -1,4 +1,3 @@
--e git+git@github.com:yqian1991/angular-tictactoe.git@4f1c6d9f2bcbec0fc59e64332527a8de0e827d80#egg=angular_tictactoe-master
 Chameleon==2.22
 Mako==1.0.2
 MarkupSafe==0.23
