@@ -69,7 +69,7 @@ var gameServices = angular.module('gameServices', []);
 
 gameServices.factory('gameApiService', ['$http', 
     function($http){
-      var urlBase = "http://0.0.0.0:6543/api";
+      var urlBase = "/api";
       var gameApiService = {};
 
       gameApiService.init = function() {
