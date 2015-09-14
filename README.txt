@@ -19,3 +19,18 @@ Clean mytemplate.pt
 
 7. Add angular.js 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+
+Deploy to Heroku
+
+heroku create --stack cedar
+
+git push heroku master
+
+heroku scale web=1
+
+heroku open
+
+heroku ps
+
+heroku logs -t
