@@ -2,7 +2,7 @@ Chameleon==2.22
 Mako==1.0.7
 MarkupSafe==0.23
 PasteDeploy==1.5.2
-Pygments==2.0.2
+Pygments==2.4.0
 pyramid==1.5.7
 pyramid-chameleon==0.3
 pyramid-debugtoolbar==4.3
