@@ -1,4 +1,4 @@
-Chameleon==2.22
+Chameleon==3.8.1
 Mako==1.0.7
 MarkupSafe==0.23
 PasteDeploy==1.5.2
