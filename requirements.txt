@@ -1,6 +1,6 @@
 Chameleon==2.22
 Mako==1.0.7
-MarkupSafe==0.23
+MarkupSafe==2.0.0
 PasteDeploy==1.5.2
 Pygments==2.0.2
 pyramid==1.5.7
